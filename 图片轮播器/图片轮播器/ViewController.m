@@ -39,7 +39,7 @@
     
     shuffling.animateDelay = 3.0;
     
-    self.imageNameArray = @[@"1.jpg",@"2.jpg",@"3.jpg"].copy;
+    self.imageNameArray = @[@"1.jpg",@"2.jpg",@"3.jpg",@"4.jpg",@"5.jpg",@"6.jpg"].copy;
     
     shuffling.imageNameArray = self.imageNameArray;
     
