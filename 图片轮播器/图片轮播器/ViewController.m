@@ -60,7 +60,10 @@
 -(void)clickButton{
 
     
-    self.shuffling.presentIndex = 3;
+    int rag = arc4random()%5;
+    NSLog(@"随机%d",rag);
+    
+    self.shuffling.presentIndex = rag;
     
 
 
@@ -74,7 +77,7 @@
 }
 
 -(void)shufflingView:(ShufflingView *)shufflingView presentImageNameArrayindex:(int)index{
-//    NSLog(@"当前轮播的图片名:%@",self.imageNameArray[index]);
+    NSLog(@"当前轮播的图片名:%@",self.imageNameArray[index]);
 }
 
 @end

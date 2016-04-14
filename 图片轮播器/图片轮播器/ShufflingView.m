@@ -162,6 +162,12 @@
 
 //重写 set 方法.在赋值的时候.做跳转的动画
 -(void)setPresentIndex:(int)presentIndex{
+    
+    if (self.endIndex == presentIndex) {
+        
+        return;
+        
+    }
 
     _presentIndex = presentIndex;
     //关闭定时器
@@ -169,17 +175,38 @@
     self.timer = nil;
     
     
-    NSLog(@"%d,%d",self.endIndex,presentIndex);
+    
+    NSLog(@"当前%d,目标%d",self.endIndex,presentIndex);
+    
+    self.imageViewOne.alpha = 0.0;
+    
+    self.imageView.image = [UIImage imageNamed:self.imageNameArray[self.endIndex]];
+    self.imageViewOne.image = [UIImage imageNamed:self.imageNameArray[presentIndex]];
+    self.startIndex = presentIndex;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        
+        self.imageView.alpha = 0.0;
+        self.imageView.center = self.view.center;
+        self.imageView.bounds =CGRectMake(0, 0, self.view.frame.size.width * 1.2,
+                                          self.view.frame.size.height * 1.2);
+        self.imageViewOne.alpha = 1.0;
+        self.imageViewOne.bounds = self.view.frame;
+        
+        
+        
+    } completion:^(BOOL finished) {
+        
+        
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:self.animateDelay target:self selector:@selector(shuffling) userInfo:nil repeats:YES];
+        
+    }];
+    
+    
     
     // 当前图片下标
     
-  
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.animateDelay target:self selector:@selector(shuffling) userInfo:nil repeats:YES];
-    
-//    [myTimer setFireDate:[NSDate distantPast]];  
-    
-    
-
 }
 
 
