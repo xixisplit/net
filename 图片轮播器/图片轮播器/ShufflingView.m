@@ -10,10 +10,10 @@
 
 @interface ShufflingView ()
 
-@property(nonatomic, assign) int index;
+@property(nonatomic, assign) int startIndex;
 
 
-@property(nonatomic,assign) int indexs;
+@property(nonatomic,assign) int endIndex;
 
 @property(nonatomic, strong) UIView *view;
 
@@ -47,7 +47,7 @@
     self.view = view;
     self.view.clipsToBounds = YES;
     
-    self.index = 1;
+    self.startIndex = 1;
     
     
     
@@ -103,37 +103,37 @@
 
 -(void)ClickImage:(UITapGestureRecognizer*)recognizer{
     
-//    NSLog(@"点击了图片.现在的图片 tag 是%@",self.imageNameArray[self.indexs]);
+//    NSLog(@"点击了图片.现在的图片 tag 是%@",self.imageNameArray[self.endstartIndex]);
     if (self.delegate) {
         
-        [self.delegate ClickImageView:self imageNameArrayIndex:self.indexs];
+        [self.delegate ClickImageView:self imageNameArrayIndex:self.endIndex];
     }
     
 }
 
 - (void)shuffling {
 
-    self.index++;
-    if (self.index > self.imageNameArray.count-1) {
-        self.index = 0;
+    self.startIndex++;
+    if (self.startIndex > self.imageNameArray.count-1) {
+        self.startIndex = 0;
     }
     
-    self.indexs = self.index -1;
-    if (self.indexs < 0) {
-        self.indexs = (int)self.imageNameArray.count-1;
+    self.endIndex = self.startIndex -1;
+    if (self.endIndex < 0) {
+        self.endIndex = (int)self.imageNameArray.count-1;
     }
     self.imageView.alpha = 1.0;
 
 
     if ([self.delegate respondsToSelector:@selector(shufflingView:presentImageNameArrayindex:)]) {
         
-        [self.delegate shufflingView:self presentImageNameArrayindex:self.indexs];
+        [self.delegate shufflingView:self presentImageNameArrayindex:self.endIndex];
     }
     
-    NSString *imageName = self.imageNameArray[self.index];
+    NSString *imageName = self.imageNameArray[self.startIndex];
     
     ;
-    NSString *imageName1 = self.imageNameArray[self.indexs];
+    NSString *imageName1 = self.imageNameArray[self.endIndex];
     
     [UIView animateWithDuration:1.0 animations:^{
         self.imageView.alpha = 0.0;
@@ -158,6 +158,29 @@
     
     
     }
+
+
+//重写 set 方法.在赋值的时候.做跳转的动画
+-(void)setPresentIndex:(int)presentIndex{
+
+    _presentIndex = presentIndex;
+    //关闭定时器
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    
+    NSLog(@"%d,%d",self.endIndex,presentIndex);
+    
+    // 当前图片下标
+    
+  
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.animateDelay target:self selector:@selector(shuffling) userInfo:nil repeats:YES];
+    
+//    [myTimer setFireDate:[NSDate distantPast]];  
+    
+    
+
+}
 
 
 @end

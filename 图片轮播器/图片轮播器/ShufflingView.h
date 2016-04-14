@@ -36,6 +36,11 @@
 @property(nonatomic,assign)CGFloat  animateDelay;
 
 /**
+ *指定显示某个图片的下标
+ */
+
+@property(nonatomic,assign)int presentIndex;
+/**
  *  轮播器空间的代理
  */
 @property(nonatomic,weak)id<ShufflingViewDelegate>delegate;
