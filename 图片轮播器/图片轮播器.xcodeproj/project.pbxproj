@@ -16,6 +16,7 @@
 		1593DB571CBF9A82003A6A8A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB541CBF9A82003A6A8A /* 1.jpg */; };
 		1593DB581CBF9A82003A6A8A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB551CBF9A82003A6A8A /* 2.jpg */; };
 		1593DB591CBF9A82003A6A8A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB561CBF9A82003A6A8A /* 3.jpg */; };
+		1593DB5C1CBF9AF6003A6A8A /* ShufflingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DB5B1CBF9AF6003A6A8A /* ShufflingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		1593DB541CBF9A82003A6A8A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		1593DB551CBF9A82003A6A8A /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		1593DB561CBF9A82003A6A8A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		1593DB5A1CBF9AF6003A6A8A /* ShufflingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflingView.h; sourceTree = "<group>"; };
+		1593DB5B1CBF9AF6003A6A8A /* ShufflingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				1593DB401CBF9A71003A6A8A /* AppDelegate.m */,
 				1593DB421CBF9A71003A6A8A /* ViewController.h */,
 				1593DB431CBF9A71003A6A8A /* ViewController.m */,
+				1593DB5A1CBF9AF6003A6A8A /* ShufflingView.h */,
+				1593DB5B1CBF9AF6003A6A8A /* ShufflingView.m */,
 				1593DB451CBF9A71003A6A8A /* Main.storyboard */,
 				1593DB481CBF9A71003A6A8A /* Assets.xcassets */,
 				1593DB531CBF9A82003A6A8A /* image */,
@@ -173,6 +178,7 @@
 				1593DB441CBF9A71003A6A8A /* ViewController.m in Sources */,
 				1593DB411CBF9A71003A6A8A /* AppDelegate.m in Sources */,
 				1593DB3E1CBF9A71003A6A8A /* main.m in Sources */,
+				1593DB5C1CBF9AF6003A6A8A /* ShufflingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
