@@ -17,6 +17,9 @@
 		1593DB581CBF9A82003A6A8A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB551CBF9A82003A6A8A /* 2.jpg */; };
 		1593DB591CBF9A82003A6A8A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB561CBF9A82003A6A8A /* 3.jpg */; };
 		1593DB5C1CBF9AF6003A6A8A /* ShufflingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DB5B1CBF9AF6003A6A8A /* ShufflingView.m */; };
+		1593DB661CBFC7A1003A6A8A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB631CBFC7A1003A6A8A /* 4.jpg */; };
+		1593DB671CBFC7A1003A6A8A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB641CBFC7A1003A6A8A /* 5.jpg */; };
+		1593DB681CBFC7A1003A6A8A /* 6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1593DB651CBFC7A1003A6A8A /* 6.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		1593DB561CBF9A82003A6A8A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		1593DB5A1CBF9AF6003A6A8A /* ShufflingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflingView.h; sourceTree = "<group>"; };
 		1593DB5B1CBF9AF6003A6A8A /* ShufflingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflingView.m; sourceTree = "<group>"; };
+		1593DB631CBFC7A1003A6A8A /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		1593DB641CBFC7A1003A6A8A /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		1593DB651CBFC7A1003A6A8A /* 6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 				1593DB541CBF9A82003A6A8A /* 1.jpg */,
 				1593DB551CBF9A82003A6A8A /* 2.jpg */,
 				1593DB561CBF9A82003A6A8A /* 3.jpg */,
+				1593DB631CBFC7A1003A6A8A /* 4.jpg */,
+				1593DB641CBFC7A1003A6A8A /* 5.jpg */,
+				1593DB651CBFC7A1003A6A8A /* 6.jpeg */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -160,9 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1593DB4C1CBF9A71003A6A8A /* LaunchScreen.storyboard in Resources */,
+				1593DB671CBFC7A1003A6A8A /* 5.jpg in Resources */,
+				1593DB661CBFC7A1003A6A8A /* 4.jpg in Resources */,
 				1593DB571CBF9A82003A6A8A /* 1.jpg in Resources */,
 				1593DB581CBF9A82003A6A8A /* 2.jpg in Resources */,
 				1593DB591CBF9A82003A6A8A /* 3.jpg in Resources */,
+				1593DB681CBFC7A1003A6A8A /* 6.jpeg in Resources */,
 				1593DB491CBF9A71003A6A8A /* Assets.xcassets in Resources */,
 				1593DB471CBF9A71003A6A8A /* Main.storyboard in Resources */,
 			);
@@ -325,6 +337,7 @@
 				1593DB521CBF9A71003A6A8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
