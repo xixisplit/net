@@ -1,29 +1,36 @@
 //
-//  N3.m
+//  nav.m
 //  XUIBottonBarView
 //
 //  Created by 陈曦 on 16/4/15.
 //  Copyright © 2016年 xi chen. All rights reserved.
 //
 
-#import "N3.h"
+#import "nav.h"
 
-@interface N3 ()
+@interface nav ()
 
 @end
 
-@implementation N3
+@implementation nav
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor brownColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    // 这里的参数viewController就是即将被push的控制器
+//    viewController.hidesBottomBarWhenPushed = YES;
+    [super pushViewController:viewController animated:animated];
+}
+
 
 /*
 #pragma mark - Navigation

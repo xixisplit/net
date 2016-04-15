@@ -10,7 +10,6 @@
 		1593DBA01CC0B782003A6A8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DB9F1CC0B782003A6A8A /* main.m */; };
 		1593DBA31CC0B782003A6A8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBA21CC0B782003A6A8A /* AppDelegate.m */; };
 		1593DBA61CC0B782003A6A8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBA51CC0B782003A6A8A /* ViewController.m */; };
-		1593DBA91CC0B782003A6A8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBA71CC0B782003A6A8A /* Main.storyboard */; };
 		1593DBAB1CC0B782003A6A8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBAA1CC0B782003A6A8A /* Assets.xcassets */; };
 		1593DBAE1CC0B782003A6A8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBAC1CC0B782003A6A8A /* LaunchScreen.storyboard */; };
 		1593DBB71CC0B864003A6A8A /* N1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBB61CC0B864003A6A8A /* N1.m */; };
@@ -34,6 +33,9 @@
 		1593DBE91CC0B910003A6A8A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBD81CC0B910003A6A8A /* Contents.json */; };
 		1593DBEA1CC0B910003A6A8A /* 图标_0008_检测.png in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBD91CC0B910003A6A8A /* 图标_0008_检测.png */; };
 		1593DBEB1CC0B910003A6A8A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBDA1CC0B910003A6A8A /* Contents.json */; };
+		1593DBEE1CC0BBE9003A6A8A /* XXTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */; };
+		1593DBF11CC0CDF1003A6A8A /* nav.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBF01CC0CDF1003A6A8A /* nav.m */; };
+		1593DBF41CC0CFD4003A6A8A /* XXtabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +45,6 @@
 		1593DBA21CC0B782003A6A8A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1593DBA41CC0B782003A6A8A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1593DBA51CC0B782003A6A8A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1593DBA81CC0B782003A6A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1593DBAA1CC0B782003A6A8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1593DBAD1CC0B782003A6A8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1593DBAF1CC0B782003A6A8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +73,12 @@
 		1593DBD81CC0B910003A6A8A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		1593DBD91CC0B910003A6A8A /* 图标_0008_检测.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图标_0008_检测.png"; sourceTree = "<group>"; };
 		1593DBDA1CC0B910003A6A8A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		1593DBEC1CC0BBE9003A6A8A /* XXTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXTabBarView.h; sourceTree = "<group>"; };
+		1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTabBarView.m; sourceTree = "<group>"; };
+		1593DBEF1CC0CDF1003A6A8A /* nav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nav.h; sourceTree = "<group>"; };
+		1593DBF01CC0CDF1003A6A8A /* nav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nav.m; sourceTree = "<group>"; };
+		1593DBF21CC0CFD4003A6A8A /* XXtabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXtabBarButton.h; sourceTree = "<group>"; };
+		1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXtabBarButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +115,8 @@
 				1593DBA21CC0B782003A6A8A /* AppDelegate.m */,
 				1593DBA41CC0B782003A6A8A /* ViewController.h */,
 				1593DBA51CC0B782003A6A8A /* ViewController.m */,
+				1593DBEF1CC0CDF1003A6A8A /* nav.h */,
+				1593DBF01CC0CDF1003A6A8A /* nav.m */,
 				1593DBB51CC0B864003A6A8A /* N1.h */,
 				1593DBB61CC0B864003A6A8A /* N1.m */,
 				1593DBB81CC0B86F003A6A8A /* N2.h */,
@@ -116,12 +125,15 @@
 				1593DBBC1CC0B87D003A6A8A /* N3.m */,
 				1593DBBE1CC0B887003A6A8A /* N4.h */,
 				1593DBBF1CC0B887003A6A8A /* N4.m */,
-				1593DBA71CC0B782003A6A8A /* Main.storyboard */,
 				1593DBC11CC0B910003A6A8A /* @3x */,
 				1593DBAA1CC0B782003A6A8A /* Assets.xcassets */,
 				1593DBAC1CC0B782003A6A8A /* LaunchScreen.storyboard */,
 				1593DBAF1CC0B782003A6A8A /* Info.plist */,
 				1593DB9E1CC0B782003A6A8A /* Supporting Files */,
+				1593DBEC1CC0BBE9003A6A8A /* XXTabBarView.h */,
+				1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */,
+				1593DBF21CC0CFD4003A6A8A /* XXtabBarButton.h */,
+				1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */,
 			);
 			path = XUIBottonBarView;
 			sourceTree = "<group>";
@@ -288,7 +300,6 @@
 				1593DBAB1CC0B782003A6A8A /* Assets.xcassets in Resources */,
 				1593DBDF1CC0B910003A6A8A /* Contents.json in Resources */,
 				1593DBEA1CC0B910003A6A8A /* 图标_0008_检测.png in Resources */,
-				1593DBA91CC0B782003A6A8A /* Main.storyboard in Resources */,
 				1593DBE11CC0B910003A6A8A /* Contents.json in Resources */,
 				1593DBDB1CC0B910003A6A8A /* Contents.json in Resources */,
 				1593DBE01CC0B910003A6A8A /* 图标_0010_黑白-1-副本.png in Resources */,
@@ -310,11 +321,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1593DBEE1CC0BBE9003A6A8A /* XXTabBarView.m in Sources */,
 				1593DBBD1CC0B87D003A6A8A /* N3.m in Sources */,
 				1593DBBA1CC0B86F003A6A8A /* N2.m in Sources */,
+				1593DBF11CC0CDF1003A6A8A /* nav.m in Sources */,
 				1593DBA61CC0B782003A6A8A /* ViewController.m in Sources */,
 				1593DBA31CC0B782003A6A8A /* AppDelegate.m in Sources */,
 				1593DBC01CC0B887003A6A8A /* N4.m in Sources */,
+				1593DBF41CC0CFD4003A6A8A /* XXtabBarButton.m in Sources */,
 				1593DBB71CC0B864003A6A8A /* N1.m in Sources */,
 				1593DBA01CC0B782003A6A8A /* main.m in Sources */,
 			);
@@ -323,14 +337,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1593DBA71CC0B782003A6A8A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1593DBA81CC0B782003A6A8A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1593DBAC1CC0B782003A6A8A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -426,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = XUIBottonBarView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.XUIBottonBarView;
@@ -437,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = XUIBottonBarView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.XUIBottonBarView;
