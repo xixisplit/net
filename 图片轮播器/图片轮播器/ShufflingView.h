@@ -41,7 +41,7 @@
 @property(nonatomic,assign)int presentIndex;
 
 /**
- *  图片放大倍数/默认为1.2倍;
+ *  可选属性 图片放大倍数/默认为1.2倍;
  */
 @property(nonatomic,assign) CGFloat amplification;
 

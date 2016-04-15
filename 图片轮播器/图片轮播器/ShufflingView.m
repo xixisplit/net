@@ -168,6 +168,8 @@
 
   if (self.endIndex == presentIndex) {
 
+      NSLog(@"相同.直接跳出去");
+      
     return;
   }
 
