@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  N1.h
 //  XUIBottonBarView
 //
 //  Created by 陈曦 on 16/4/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITabBarController
-
+@interface N1 : UIViewController
 
 @end
-
