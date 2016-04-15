@@ -38,10 +38,15 @@
 /**
  *指定显示某个图片的下标
  */
-
 @property(nonatomic,assign)int presentIndex;
+
 /**
- *  轮播器空间的代理
+ *  图片放大倍数/默认为1.2倍;
+ */
+@property(nonatomic,assign) CGFloat amplification;
+
+/**
+ *  轮播器控件的代理
  */
 @property(nonatomic,weak)id<ShufflingViewDelegate>delegate;
 

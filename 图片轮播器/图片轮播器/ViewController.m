@@ -41,6 +41,7 @@
     self.shuffling = shuffling;
     
     shuffling.animateDelay = 3.0;
+    shuffling.amplification = 2.0;
     
     self.imageNameArray = @[@"1.jpg",@"2.jpg",@"3.jpg",@"4.jpg",@"5.jpg",@"6.jpg"].copy;
     
@@ -51,13 +52,13 @@
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 30, 30, 30)];
     button.backgroundColor = [UIColor yellowColor];
-    [button addTarget:self action:@selector(clickButton) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
     
 }
 
--(void)clickButton{
+-(void)clickButton:(UIButton *)button{
 
     
     int rag = arc4random()%5;
@@ -65,6 +66,8 @@
     
     self.shuffling.presentIndex = rag;
     
+
+//    button.transform
 
 
 }
