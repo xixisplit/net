@@ -15,7 +15,7 @@
 #import "XXTabBarView.h"
 #import "nav.h"
 
-@interface ViewController ()
+@interface ViewController ()<XXTabBarViewDelegate>
 
 @property(nonatomic,weak)XXTabBarView* tabbar;
 
@@ -46,9 +46,6 @@
     [self addChildViewController:nav2];
     [self addChildViewController:nav3];
     [self addChildViewController:nav4];
-    
-
-
 
 }
 - (void)didReceiveMemoryWarning {
@@ -56,20 +53,39 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillLayoutSubviews{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
+    XXTabBarView *bar = [[XXTabBarView alloc]initWithFrame:self.tabBar.bounds];
+    
+    bar.delegate =self;
+    
+    bar.tabarTitleArray = @[@"资讯",@"好友",@"发现",@"我"];
+    bar.tabBarbackgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
+    bar.textColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:1.0];
+    bar.tectHightColor = [UIColor colorWithRed:54.0/255.0 green:114.0/255.0 blue:181.0/255.0 alpha:1.0];
+    
+    
+//    bar.tabarImageSize = CGPointMake(25, 30);
+    
+    bar.tabarIconArray = @[@"tab_icon_news_normal",
+                           @"tab_icon_friend_normal",
+                           @"tab_icon_quiz_normal",
+                           @"tab_icon_more_normal"];
+    
+    bar.tabarBackIconArray = @[@"tab_icon_news_press",
+                               @"tab_icon_friend_press",
+                               @"tab_icon_quiz_press",
+                               @"tab_icon_more_press"];
 
-    XXTabBarView *xxbar = [[XXTabBarView alloc]init];
-    for (int i = 0; i<self.viewControllers.count; i++) {
-        
-        [xxbar addbottomBarButtonWithImage:[NSString stringWithFormat:@"%d",i] selected:nil];
-    }
+    [bar OK];
+    [self.tabBar addSubview:bar];
+    [bar bringSubviewToFront:self.tabBar];
     
-    xxbar.frame = self.tabBar.bounds;
-    
-    [self.tabBar addSubview:xxbar];
-    [xxbar bringSubviewToFront:self.tabBar];
+}
 
+-(void)XXTabBarView:(XXTabBarView *)tabBarView didClickTaBarItemIndex:(int)index{
+    NSLog(@"%d",index);
 }
 
 @end

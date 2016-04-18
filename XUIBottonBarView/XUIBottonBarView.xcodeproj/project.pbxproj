@@ -35,7 +35,8 @@
 		1593DBEB1CC0B910003A6A8A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1593DBDA1CC0B910003A6A8A /* Contents.json */; };
 		1593DBEE1CC0BBE9003A6A8A /* XXTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */; };
 		1593DBF11CC0CDF1003A6A8A /* nav.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBF01CC0CDF1003A6A8A /* nav.m */; };
-		1593DBF41CC0CFD4003A6A8A /* XXtabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */; };
+		1593DC1D1CC3C9A9003A6A8A /* XXCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DC1C1CC3C9A8003A6A8A /* XXCollectionView.m */; };
+		1593DC201CC47E74003A6A8A /* XXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DC1F1CC47E74003A6A8A /* XXCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,8 +78,10 @@
 		1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTabBarView.m; sourceTree = "<group>"; };
 		1593DBEF1CC0CDF1003A6A8A /* nav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nav.h; sourceTree = "<group>"; };
 		1593DBF01CC0CDF1003A6A8A /* nav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nav.m; sourceTree = "<group>"; };
-		1593DBF21CC0CFD4003A6A8A /* XXtabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXtabBarButton.h; sourceTree = "<group>"; };
-		1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXtabBarButton.m; sourceTree = "<group>"; };
+		1593DC1B1CC3C9A8003A6A8A /* XXCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXCollectionView.h; sourceTree = "<group>"; };
+		1593DC1C1CC3C9A8003A6A8A /* XXCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXCollectionView.m; sourceTree = "<group>"; };
+		1593DC1E1CC47E74003A6A8A /* XXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXCollectionViewCell.h; sourceTree = "<group>"; };
+		1593DC1F1CC47E74003A6A8A /* XXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +135,10 @@
 				1593DB9E1CC0B782003A6A8A /* Supporting Files */,
 				1593DBEC1CC0BBE9003A6A8A /* XXTabBarView.h */,
 				1593DBED1CC0BBE9003A6A8A /* XXTabBarView.m */,
-				1593DBF21CC0CFD4003A6A8A /* XXtabBarButton.h */,
-				1593DBF31CC0CFD4003A6A8A /* XXtabBarButton.m */,
+				1593DC1B1CC3C9A8003A6A8A /* XXCollectionView.h */,
+				1593DC1C1CC3C9A8003A6A8A /* XXCollectionView.m */,
+				1593DC1E1CC47E74003A6A8A /* XXCollectionViewCell.h */,
+				1593DC1F1CC47E74003A6A8A /* XXCollectionViewCell.m */,
 			);
 			path = XUIBottonBarView;
 			sourceTree = "<group>";
@@ -324,11 +329,12 @@
 				1593DBEE1CC0BBE9003A6A8A /* XXTabBarView.m in Sources */,
 				1593DBBD1CC0B87D003A6A8A /* N3.m in Sources */,
 				1593DBBA1CC0B86F003A6A8A /* N2.m in Sources */,
+				1593DC201CC47E74003A6A8A /* XXCollectionViewCell.m in Sources */,
 				1593DBF11CC0CDF1003A6A8A /* nav.m in Sources */,
+				1593DC1D1CC3C9A9003A6A8A /* XXCollectionView.m in Sources */,
 				1593DBA61CC0B782003A6A8A /* ViewController.m in Sources */,
 				1593DBA31CC0B782003A6A8A /* AppDelegate.m in Sources */,
 				1593DBC01CC0B887003A6A8A /* N4.m in Sources */,
-				1593DBF41CC0CFD4003A6A8A /* XXtabBarButton.m in Sources */,
 				1593DBB71CC0B864003A6A8A /* N1.m in Sources */,
 				1593DBA01CC0B782003A6A8A /* main.m in Sources */,
 			);
@@ -471,6 +477,7 @@
 				1593DBB41CC0B782003A6A8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,13 +7,52 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XXTabBarView;
 
+@protocol  XXTabBarViewDelegate<NSObject>
+
+-(void)XXTabBarView:(XXTabBarView*)tabBarView didClickTaBarItemIndex:(int)index;
+
+
+@end
 @interface XXTabBarView : UIView
 
+/**
+ *  tabar 图片名数组;
+ */
+@property(nonatomic,strong)NSArray *tabarIconArray;
 
--(void)addbottomBarButtonWithImage:(NSString *)normal selected:(NSString *)selected;
+@property(nonatomic,strong)NSArray *tabarBackIconArray;
 
-@property(nonatomic,strong)NSArray *ItamArray;
+/**
+ *  tabar文字数组;
+ */
+@property(nonatomic,strong)NSArray *tabarTitleArray;
 
+/**
+ *  文字默认颜色;
+ */
+@property(nonatomic,strong)UIColor *textColor;
+/**
+ *  文字高亮颜色
+ */
+@property(nonatomic,strong)UIColor *tectHightColor;
+
+/**
+ *  tabbar 背景颜色
+ */
+@property(nonatomic,strong)UIColor *tabBarbackgroundColor;
+
+/**
+ *  image大小.可选属性 默认为图片大小
+ */
+@property(nonatomic,assign)CGPoint tabarImageSize;
+
+/**
+ *  布局方法.在最后添加到视图之前调用.
+ */
+-(void)OK;
+
+@property(nonatomic,weak)id<XXTabBarViewDelegate>delegate;
 
 @end

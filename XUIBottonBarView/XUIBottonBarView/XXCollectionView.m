@@ -1,19 +1,15 @@
 //
-//  XXtabBarButton.m
+//  XXCollectionView.m
 //  XUIBottonBarView
 //
-//  Created by 陈曦 on 16/4/15.
+//  Created by 陈曦 on 16/4/17.
 //  Copyright © 2016年 xi chen. All rights reserved.
 //
 
-#import "XXtabBarButton.h"
+#import "XXCollectionView.h"
 
-@implementation XXtabBarButton
+@implementation XXCollectionView
 
--(void)setHighlighted:(BOOL)highlighted{
-
-
-}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
