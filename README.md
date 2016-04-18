@@ -22,7 +22,8 @@ XUIBottonBarView  自定义 tabar 控件.
 @interface XXTabBarView : UIView
 
 
- *  tabar 图片名数组;
+ *  tabar 图片名数组
+ 
 @property(nonatomic,copy)NSArray <NSString *> *tabarIconArray;
 
  *  图片选中状态的数组
