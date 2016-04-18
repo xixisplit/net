@@ -2,16 +2,53 @@
  图片轮播器
 
 这个轮播器的实现 方式不是用 UIScrollView 做的不是左右滚动. 就是 一个 UIView
+--------***轮播器头文件***----------
 
-很简单
-详细的属性和代理方法可以看头文件
+@class ShufflingView;
+@protocol ShufflingViewDelegate <NSObject>
+
+*  轮播器的代理方法,用于监听点击轮播器图片的时候.返回当前被点击的数组的 index;
+
+-(void)ClickImageView:(ShufflingView*)shufflingView imageNameArrayIndex:(int)Index;
+@optional
+
+*
+*可选代理.此代理会在每次更换图片的时候调用.会传出当前图片数组所属的 index 下标
+
+-(void)shufflingView:(ShufflingView*)shufflingView presentImageNameArrayindex:(int)index;
+
+@end
+
+@interface ShufflingView : UIView
+
+*  轮播器图片的数组.数组元素为图片的字符串路径
+
+@property(nonatomic,strong)NSArray *imageNameArray;
+
+*  轮播器的轮播速度.建议3秒以上
+
+@property(nonatomic,assign)CGFloat  animateDelay;
 
 
+*指定显示某个图片的下标
+
+@property(nonatomic,assign)int presentIndex;
 
 
+*  可选属性 图片放大倍数/默认为1.2倍;
+
+@property(nonatomic,assign) CGFloat amplification;
 
 
-XUIBottonBarView  自定义 tabar 控件.
+*  轮播器控件的代理
+
+@property(nonatomic,weak)id\<ShufflingViewDelegate\>delegate;
+
+
+--------------------------分割线--------------------------------
+
+--------***自定义 tabar 控件头文件***----------
+
 @class XXTabBarView;
 
 @protocol  XXTabBarViewDelegate<NSObject>

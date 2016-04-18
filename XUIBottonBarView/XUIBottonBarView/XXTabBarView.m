@@ -15,11 +15,11 @@
 /**
  *  label控件集合
  */
-@property(nonatomic, strong) NSMutableArray *labelArray;
+@property(nonatomic, strong) NSMutableArray<UILabel *> *labelArray;
 /**
  *  图片控件集合
  */
-@property(nonatomic, strong) NSMutableArray *imageArray;
+@property(nonatomic, strong) NSMutableArray<UIImageView*> *imageArray;
 /**
  *  cell 集合
  */
@@ -161,7 +161,7 @@
   for (XXCollectionViewCell *cell in self.cellArray) {
     cell.selected = NO;
   }
-
+    
   for (UILabel *label in self.labelArray) {
     label.textColor = self.textColor;
   }

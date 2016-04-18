@@ -19,16 +19,16 @@
 /**
  *  tabar 图片名数组;
  */
-@property(nonatomic,strong)NSArray *tabarIconArray;
+@property(nonatomic,copy)NSArray <NSString *> *tabarIconArray;
 /**
  *  图片选中状态的数组
  */
-@property(nonatomic,strong)NSArray *tabarBackIconArray;
+@property(nonatomic,copy)NSArray<NSString *> *tabarBackIconArray;
 
 /**
  *  tabar文字数组;
  */
-@property(nonatomic,strong)NSArray *tabarTitleArray;
+@property(nonatomic,copy)NSArray<NSString*> *tabarTitleArray;
 
 /**
  *  文字默认颜色;
@@ -47,7 +47,7 @@
 /**
  *  image大小.可选属性 默认为图片大小
  */
-@property(nonatomic,assign)CGPoint tabarImageSize;
+@property(nonatomic)CGPoint tabarImageSize;
 
 /**
  *  默认选中某个 item. 默认第0个.可以在 OK 之前设置.
@@ -61,7 +61,6 @@
 -(void)OK;
 /**
  *调用此方法可以跳转到某个 item;
- 
  */
 -(void)selectedIteme:(int)index;
 
