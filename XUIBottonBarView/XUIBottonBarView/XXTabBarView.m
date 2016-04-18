@@ -15,10 +15,19 @@
 
 @property(nonatomic, strong) NSMutableArray *labelArray;
 @property(nonatomic, strong) NSMutableArray *imageArray;
+@property(nonatomic, strong) NSMutableArray *cellArray;
 
 @end
 
 @implementation XXTabBarView
+
+-(NSMutableArray *)cellArray{
+    if (_cellArray == nil) {
+        _cellArray = [NSMutableArray array];
+    }
+    return _cellArray;
+
+}
 
 - (NSMutableArray *)labelArray {
   if (_labelArray == nil) {
@@ -100,6 +109,23 @@
 
   [cell addSubview:imageView];
   [cell addSubview:label];
+    
+    if (self.defaultItem > -1) {
+        
+        if (indexPath.row == self.defaultItem) {
+            
+            cell.selected = YES;
+        }
+    }else{
+        if (indexPath.row == 0) {
+            
+            cell.selected = YES;
+        }
+    }
+
+
+    [self.cellArray addObject:cell];
+    
 
   return cell;
 }
@@ -110,14 +136,25 @@
   for (UILabel *label in self.labelArray) {
     label.textColor = self.textColor;
   }
+    for (XXCollectionViewCell *cell in self.cellArray) {
+        cell.selected = NO;
+    }
   UILabel *Clicklabel = self.labelArray[indexPath.row];
   Clicklabel.textColor = self.tectHightColor;
-    
-    if([self.delegate respondsToSelector:@selector(XXTabBarView:didClickTaBarItemIndex:)]){
-    
-        [self.delegate XXTabBarView:self didClickTaBarItemIndex:(int)indexPath.row];
-    
+
+  if ([self.delegate
+          respondsToSelector:@selector(XXTabBarView:didClickTaBarItemIndex:)]) {
+
+    [self.delegate XXTabBarView:self didClickTaBarItemIndex:(int)indexPath.row];
+  }
+}
+
+-(void)selectedIteme:(int)index{
+    for (XXCollectionViewCell *cell in self.cellArray) {
+        cell.selected = NO;
     }
+    XXCollectionViewCell *cell = self.cellArray[index];
+    cell.selected = YES;
     
 }
 

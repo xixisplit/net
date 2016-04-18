@@ -13,7 +13,6 @@
 
 -(void)XXTabBarView:(XXTabBarView*)tabBarView didClickTaBarItemIndex:(int)index;
 
-
 @end
 @interface XXTabBarView : UIView
 
@@ -21,7 +20,9 @@
  *  tabar 图片名数组;
  */
 @property(nonatomic,strong)NSArray *tabarIconArray;
-
+/**
+ *  图片选中状态的数组
+ */
 @property(nonatomic,strong)NSArray *tabarBackIconArray;
 
 /**
@@ -49,9 +50,21 @@
 @property(nonatomic,assign)CGPoint tabarImageSize;
 
 /**
- *  布局方法.在最后添加到视图之前调用.
+ *  默认选中某个 item. 默认第0个.可以在 OK 之前设置.
+ */
+@property(nonatomic,assign)int defaultItem;
+
+
+/**
+ *  布局方法.在addsubViews最后添加到视图之前调用.
  */
 -(void)OK;
+/**
+ *调用此方法可以跳转到某个 item;
+ 
+ */
+-(void)selectedIteme:(int)index;
+
 
 @property(nonatomic,weak)id<XXTabBarViewDelegate>delegate;
 

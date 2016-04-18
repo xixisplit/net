@@ -46,6 +46,24 @@
     [self addChildViewController:nav2];
     [self addChildViewController:nav3];
     [self addChildViewController:nav4];
+    
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 30, 30)];
+    button.backgroundColor = [UIColor yellowColor];
+    
+    [button addTarget:self action:@selector(Click) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:button];
+
+}
+
+-(void)Click{
+
+    int rnd = arc4random_uniform(4);
+    
+    NSLog(@"%d",rnd);
+    
+    [self.tabbar selectedIteme:rnd];
 
 }
 - (void)didReceiveMemoryWarning {
@@ -53,10 +71,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     XXTabBarView *bar = [[XXTabBarView alloc]initWithFrame:self.tabBar.bounds];
+    self.tabbar = bar;
+    
     
     bar.delegate =self;
     
@@ -77,6 +99,8 @@
                                @"tab_icon_friend_press",
                                @"tab_icon_quiz_press",
                                @"tab_icon_more_press"];
+    
+    bar.defaultItem = 3;
 
     [bar OK];
     [self.tabBar addSubview:bar];
@@ -85,7 +109,10 @@
 }
 
 -(void)XXTabBarView:(XXTabBarView *)tabBarView didClickTaBarItemIndex:(int)index{
+    
     NSLog(@"%d",index);
+    self.selectedIndex = index;
+    
 }
 
 @end
