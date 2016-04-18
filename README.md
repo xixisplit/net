@@ -70,6 +70,6 @@ XUIBottonBarView  自定义 tabar 控件.
 -(void)selectedIteme:(int)index;
 
 
-@property(nonatomic,weak)id<XXTabBarViewDelegate>delegate;
+@property(nonatomic,weak)id/<XXTabBarViewDelegate/>delegate;
 
 @end
