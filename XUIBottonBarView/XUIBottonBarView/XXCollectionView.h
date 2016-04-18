@@ -10,4 +10,5 @@
 
 @interface XXCollectionView : UICollectionView
 
+
 @end

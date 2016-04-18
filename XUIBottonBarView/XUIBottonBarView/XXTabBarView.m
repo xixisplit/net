@@ -12,21 +12,28 @@
 
 @interface XXTabBarView () <UICollectionViewDelegate,
                             UICollectionViewDataSource>
-
+/**
+ *  label控件集合
+ */
 @property(nonatomic, strong) NSMutableArray *labelArray;
+/**
+ *  图片控件集合
+ */
 @property(nonatomic, strong) NSMutableArray *imageArray;
+/**
+ *  cell 集合
+ */
 @property(nonatomic, strong) NSMutableArray *cellArray;
 
 @end
 
 @implementation XXTabBarView
 
--(NSMutableArray *)cellArray{
-    if (_cellArray == nil) {
-        _cellArray = [NSMutableArray array];
-    }
-    return _cellArray;
-
+- (NSMutableArray *)cellArray {
+  if (_cellArray == nil) {
+    _cellArray = [NSMutableArray array];
+  }
+  return _cellArray;
 }
 
 - (NSMutableArray *)labelArray {
@@ -102,43 +109,43 @@
   [label sizeToFit];
   label.center =
       CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height - 8);
-
   [self.imageArray addObject:imageView];
   [self.labelArray addObject:label];
   NSLog(@"%@", label);
 
   [cell addSubview:imageView];
   [cell addSubview:label];
-    
-    if (self.defaultItem > -1) {
-        
-        if (indexPath.row == self.defaultItem) {
-            
-            cell.selected = YES;
-        }
-    }else{
-        if (indexPath.row == 0) {
-            
-            cell.selected = YES;
-        }
+
+  if (self.defaultItem > -1) {
+
+    if (indexPath.row == self.defaultItem) {
+
+      cell.selected = YES;
     }
+  } else {
+    if (indexPath.row == 0) {
 
+      cell.selected = YES;
+    }
+  }
 
-    [self.cellArray addObject:cell];
-    
+  [self.cellArray addObject:cell];
 
   return cell;
 }
-
+/**
+ * cell 点击的代理方法.通过点击 cell. 让 cell
+ * 内部的控件做相应的操作.并调用自己的代理方法.传出这个被点击的 cell 的 index;
+ */
 - (void)collectionView:(UICollectionView *)collectionView
     didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
   for (UILabel *label in self.labelArray) {
     label.textColor = self.textColor;
   }
-    for (XXCollectionViewCell *cell in self.cellArray) {
-        cell.selected = NO;
-    }
+  for (XXCollectionViewCell *cell in self.cellArray) {
+    cell.selected = NO;
+  }
   UILabel *Clicklabel = self.labelArray[indexPath.row];
   Clicklabel.textColor = self.tectHightColor;
 
@@ -149,13 +156,20 @@
   }
 }
 
--(void)selectedIteme:(int)index{
-    for (XXCollectionViewCell *cell in self.cellArray) {
-        cell.selected = NO;
-    }
-    XXCollectionViewCell *cell = self.cellArray[index];
-    cell.selected = YES;
-    
+- (void)selectedIteme:(int)index {
+
+  for (XXCollectionViewCell *cell in self.cellArray) {
+    cell.selected = NO;
+  }
+
+  for (UILabel *label in self.labelArray) {
+    label.textColor = self.textColor;
+  }
+  UILabel *Clicklabel = self.labelArray[index];
+  Clicklabel.textColor = self.tectHightColor;
+
+  XXCollectionViewCell *cell = self.cellArray[index];
+  cell.selected = YES;
 }
 
 @end

@@ -10,4 +10,12 @@
 
 @interface XXCollectionViewCell : UICollectionViewCell
 
+@property(nonatomic,strong)NSString *imageName;
+
+@property(nonatomic,strong)NSString *HightImageName;
+
+@property(nonatomic,strong)NSString *labelString;
+
+@property(nonatomic,assign)CGPoint imageSize;
+
 @end
