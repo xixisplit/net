@@ -53,7 +53,7 @@ typedef NS_OPTIONS(NSUInteger, XXTabBarViewItemIconAnimationType) {
 @property(nonatomic,strong)UIColor *tabBarbackgroundColor;
 
 /**
- *  image大小.可选属性 默认为图片大小
+ *  image大小.可选属性 默认为图片大小  此属性可以解决icon图片过大的问题.
  */
 @property(nonatomic)CGPoint tabarImageSize;
 

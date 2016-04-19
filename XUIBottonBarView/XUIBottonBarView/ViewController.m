@@ -95,6 +95,7 @@
 
   //    bar.tabarImageSize = CGPointMake(25, 30);
 
+    bar.defaultItem = 3;
   bar.tabarIconArray = @[
     @"tab_icon_news_normal",
     @"tab_icon_friend_normal",
@@ -109,7 +110,8 @@
     @"tab_icon_more_press"
   ];
 
-    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
+
+//    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
     
 
   [bar OK];

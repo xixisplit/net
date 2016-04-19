@@ -10,10 +10,9 @@
 #import "XXCollectionViewCell.h"
 #import "XXTabBarView.h"
 
-
 typedef NS_OPTIONS(NSUInteger, RotationType) {
-    RotationTypeLeft    = 1 << 0,
-    RotationTypeRight   = 1 << 1,
+  RotationTypeLeft = 1 << 0,
+  RotationTypeRight = 1 << 1,
 };
 
 @interface XXTabBarView () <UICollectionViewDelegate,
@@ -25,7 +24,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
 /**
  *  图片控件集合
  */
-@property(nonatomic, strong) NSMutableArray<UIImageView*> *imageArray;
+@property(nonatomic, strong) NSMutableArray<UIImageView *> *imageArray;
 /**
  *  cell 集合
  */
@@ -55,7 +54,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   }
   return _imageArray;
 }
-
+ #pragma mark - 属性设置完成后调用的布局方法
 - (void)OK {
 
   UICollectionViewFlowLayout *layout =
@@ -86,6 +85,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   return self.tabarIconArray.count;
 }
 
+#pragma mark - 返回 cell 样式
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -95,10 +95,8 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   cell.backgroundColor = self.tabBarbackgroundColor;
 
   UIImage *image = [UIImage imageNamed:self.tabarIconArray[indexPath.row]];
-  UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[indexPath.row]];
 
-  UIImageView *imageView =
-      [[UIImageView alloc] initWithImage:image highlightedImage:himage];
+  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
   if (self.tabarImageSize.x) {
     imageView.bounds =
@@ -127,11 +125,16 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
     if (indexPath.row == self.defaultItem) {
 
       cell.selected = YES;
+      self.imageArray[self.defaultItem].image =
+          [UIImage imageNamed:self.tabarBackIconArray[self.defaultItem]];
+        self.labelArray[self.defaultItem].textColor = self.tectHightColor;
     }
   } else {
     if (indexPath.row == 0) {
 
-      cell.selected = YES;
+      self.imageArray[self.defaultItem].image =
+          [UIImage imageNamed:self.tabarBackIconArray[self.defaultItem]];
+        self.labelArray[self.defaultItem].textColor = self.tectHightColor;
     }
   }
 
@@ -143,8 +146,13 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
  * cell 点击的代理方法.通过点击 cell. 让 cell
  * 内部的控件做相应的操作.并调用自己的代理方法.传出这个被点击的 cell 的 index;
  */
+#pragma mark - cell 的点击响应事件
 - (void)collectionView:(UICollectionView *)collectionView
     didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+  for (int i = 0; i < self.imageArray.count; i++) {
+    self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
+  }
 
   for (UILabel *label in self.labelArray) {
     label.textColor = self.textColor;
@@ -160,81 +168,108 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
 
     [self.delegate XXTabBarView:self didClickTaBarItemIndex:(int)indexPath.row];
   }
-        [self IconAnimation:self.imageArray[indexPath.row] wihtlabelColor:self.labelArray[indexPath.row]];
-}
 
+  UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[indexPath.row]];
+
+  [self IconAnimation:self.imageArray[indexPath.row]
+             wihtlabelColor:self.labelArray[indexPath.row]
+      withIconBackImageName:himage];
+}
+#pragma mark - 代码设置某个 item显示的类方法 
 - (void)selectedIteme:(int)index {
 
   for (XXCollectionViewCell *cell in self.cellArray) {
     cell.selected = NO;
   }
-    
+
   for (UILabel *label in self.labelArray) {
     label.textColor = self.textColor;
   }
+
+    for (int i; i<self.imageArray.count; i++) {
+        
+        self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
+        
+    }
+
   UILabel *Clicklabel = self.labelArray[index];
   Clicklabel.textColor = self.tectHightColor;
 
   XXCollectionViewCell *cell = self.cellArray[index];
   cell.selected = YES;
-}
 
--(void)IconAnimation:(UIImageView *)imageView wihtlabelColor:(UILabel *)label{
-    if (self.animationType){
-        
-        switch (self.animationType) {
-            case XXTabBarViewItemIconAnimationTypeLeftRotation:
-               
-                [self iconLeftRotation:imageView withlabel:label wihtleftOrRight:RotationTypeLeft];
-                
-                break;
-            case XXTabBarViewItemIconAnimationTypeRightRotation:
-                  [self iconLeftRotation:imageView withlabel:label wihtleftOrRight:RotationTypeRight];
-                break;
-                
-            default:
-                break;
-        }
+  self.imageArray[index].image =
+      [UIImage imageNamed:self.tabarBackIconArray[index]];
     
+    
+}
+#pragma mark - 图标的动画逻辑判断
+- (void)IconAnimation:(UIImageView *)imageView
+       wihtlabelColor:(UILabel *)label
+withIconBackImageName:(UIImage *)imageName {
+  if (self.animationType) {
 
-    };
+    switch (self.animationType) {
+    case XXTabBarViewItemIconAnimationTypeLeftRotation:
+
+      [self iconLeftRotation:imageView
+                      withlabel:label
+                wihtleftOrRight:RotationTypeLeft
+          withIconBackImageName:imageName];
+
+      break;
+    case XXTabBarViewItemIconAnimationTypeRightRotation:
+      [self iconLeftRotation:imageView
+                      withlabel:label
+                wihtleftOrRight:RotationTypeRight
+          withIconBackImageName:imageName];
+      break;
+
+    default:
+      break;
+    }
+  }else{
+      
+      imageView.image = imageName;
+      
+  };
 }
 
 #pragma mark - icon 的动画效果方法
 
--(void)iconLeftRotation:(UIImageView *)imageView withlabel:(UILabel *)label wihtleftOrRight:(RotationType)type{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        CAAnimationGroup *group = [CAAnimationGroup animation];
-        
-        CABasicAnimation *caBasic = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        if (type == RotationTypeLeft){
-            caBasic.byValue = @(-M_PI*2*1);
-        }else if (type == RotationTypeRight){
-            caBasic.byValue = @(M_PI*2*1);
-        }
+- (void)iconLeftRotation:(UIImageView *)imageView
+               withlabel:(UILabel *)label
+         wihtleftOrRight:(RotationType)type
+   withIconBackImageName:(UIImage *)imageName {
+  dispatch_async(dispatch_get_main_queue(), ^{
 
-        group.animations = @[caBasic];
-        
-        group.duration = 1.0;
-        group.repeatCount = 1;
-        
-        [imageView.layer addAnimation:group forKey:@"group_anim"];
+    CAAnimationGroup *group = [CAAnimationGroup animation];
 
-        
-        /* --- 这段带来是在动画异步主线程的动画结束之后做的事情;
-        dispatch_time_t popTime =  dispatch_time(DISPATCH_TIME_NOW, group.duration*NSEC_PER_SEC);
-        
-        dispatch_after(popTime, dispatch_get_main_queue(), ^{
-            label.textColor = [UIColor redColor];
-            
-        });
-         
-         */
-        
+    CABasicAnimation *caBasic =
+        [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    if (type == RotationTypeLeft) {
+      caBasic.byValue = @(-M_PI * 2 * 1);
+    } else if (type == RotationTypeRight) {
+      caBasic.byValue = @(M_PI * 2 * 1);
+    }
+    group.animations = @[ caBasic ];
+
+    group.duration = 1.0;
+    group.repeatCount = 1;
+
+    [imageView.layer addAnimation:group forKey:@"group_anim"];
+
+    // --- 这段带来是在动画异步主线程的动画结束之后做的事情;
+    dispatch_time_t popTime =
+        dispatch_time(DISPATCH_TIME_NOW, group.duration * NSEC_PER_SEC);
+
+    dispatch_after(popTime, dispatch_get_main_queue(), ^{
+
+      imageView.image = imageName;
+
     });
 
+  });
 }
-
 
 @end
