@@ -128,6 +128,9 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
       self.imageArray[self.defaultItem].image =
           [UIImage imageNamed:self.tabarBackIconArray[self.defaultItem]];
         self.labelArray[self.defaultItem].textColor = self.tectHightColor;
+        
+        
+        
     }
   } else {
     if (indexPath.row == 0) {

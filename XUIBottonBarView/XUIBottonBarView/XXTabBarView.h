@@ -58,7 +58,7 @@ typedef NS_OPTIONS(NSUInteger, XXTabBarViewItemIconAnimationType) {
 @property(nonatomic)CGPoint tabarImageSize;
 
 /**
- *  默认选中某个 item. 默认第0个.可以在 OK 之前设置.
+ *  默认选中某个 item. 默认第0个.如果设置此属性.并不能让 tabarView 跟着跳转.需要设置 self.selectedIndex;
  */
 @property(nonatomic,assign)int defaultItem;
 

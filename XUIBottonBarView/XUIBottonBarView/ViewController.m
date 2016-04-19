@@ -94,8 +94,11 @@
                                        alpha:1.0];
 
   //    bar.tabarImageSize = CGPointMake(25, 30);
-
+// 默认选中某个 item. 默认第0个.如果设置此属性.并不能让 tabarView 跟着跳转.需要设置 self.selectedIndex;
     bar.defaultItem = 3;
+    self.selectedIndex = 3;
+//--------------------
+    
   bar.tabarIconArray = @[
     @"tab_icon_news_normal",
     @"tab_icon_friend_normal",
