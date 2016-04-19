@@ -264,7 +264,17 @@ withIconBackImageName:(UIImage *)imageName {
         dispatch_time(DISPATCH_TIME_NOW, group.duration * NSEC_PER_SEC);
 
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
+        
+        for (UILabel *label in self.labelArray) {
+            label.textColor = self.textColor;
+            
+        }
 
+        for (int i = 0; i<self.imageArray.count; i++) {
+            
+            self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
+            
+        }
       imageView.image = imageName;
         label.textColor = self.tectHightColor;
 
