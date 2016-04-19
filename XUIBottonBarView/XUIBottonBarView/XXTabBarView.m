@@ -54,6 +54,26 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   }
   return _imageArray;
 }
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+
+    }
+    return self;
+}
+
+-(void)setBackgroundImage:(UIImage *)backgroundImage{
+
+    _backgroundImage = backgroundImage;
+    
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:self.backgroundImage];
+        imageView.frame = self.frame;
+        [self addSubview:imageView];
+
+}
+
 #pragma mark - 属性设置完成后调用的布局方法
 - (void)OK {
 
@@ -61,13 +81,14 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
       [[UICollectionViewFlowLayout alloc] init];
   XXCollectionView *BarView = [[XXCollectionView alloc] initWithFrame:self.frame
                                                  collectionViewLayout:layout];
-
+    BarView.backgroundColor = [UIColor clearColor];
   CGFloat itemWidth = self.frame.size.width / self.tabarIconArray.count;
   CGFloat itemHeight = self.frame.size.height;
   NSLog(@"%f,%f", itemWidth, itemHeight);
 
   layout.itemSize = CGSizeMake(itemWidth, itemHeight);
   layout.minimumInteritemSpacing = 0;
+    
   layout.minimumLineSpacing = 0;
 
   BarView.delegate = self;
@@ -92,7 +113,14 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   XXCollectionViewCell *cell =
       [collectionView dequeueReusableCellWithReuseIdentifier:@"id"
                                                 forIndexPath:indexPath];
-  cell.backgroundColor = self.tabBarbackgroundColor;
+    
+    if (self.backgroundImage) {
+        cell.backgroundColor = [UIColor clearColor];
+    }else{
+        
+         cell.backgroundColor = self.tabBarbackgroundColor;
+    }
+ 
 
   UIImage *image = [UIImage imageNamed:self.tabarIconArray[indexPath.row]];
 
@@ -103,7 +131,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
         CGRectMake(0, 0, self.tabarImageSize.x, self.tabarImageSize.y);
   }
 
-  NSLog(@"%@", NSStringFromCGRect(imageView.bounds));
+
   imageView.center =
       CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height / 2 - 5);
   UILabel *label = [[UILabel alloc] init];
@@ -115,7 +143,6 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
       CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height - 8);
   [self.imageArray addObject:imageView];
   [self.labelArray addObject:label];
-  NSLog(@"%@", label);
 
   [cell addSubview:imageView];
   [cell addSubview:label];
@@ -139,6 +166,13 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   }
 
   [self.cellArray addObject:cell];
+    
+    CGFloat x,y,w,h;
+    x = self.bounds.size.width/self.tabarTitleArray.count*indexPath.row;
+    y = 0;
+    w = self.bounds.size.width/self.tabarTitleArray.count;
+    h = self.bounds.size.height;
+    cell.frame = CGRectMake(x, y, w, h);
 
   return cell;
 }

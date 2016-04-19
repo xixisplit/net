@@ -25,6 +25,10 @@ typedef NS_OPTIONS(NSUInteger, XXTabBarViewItemIconAnimationType) {
 @interface XXTabBarView : UIView
 
 /**
+ *  tabar的背景图.可选.图片大小为 tabar 的大小,如果设置了背景图.背景色就会透明;
+ */
+@property(nonatomic,weak)UIImage *backgroundImage;
+/**
  *  tabar 图片名数组;
  */
 @property(nonatomic,copy)NSArray <NSString *> *tabarIconArray;

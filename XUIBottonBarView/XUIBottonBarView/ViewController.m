@@ -48,7 +48,7 @@
 
   UIButton *button =
       [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 30, 30)];
-  button.backgroundColor = [UIColor yellowColor];
+  button.backgroundColor = [UIColor blueColor];
 
   [button addTarget:self
                 action:@selector(Click)
@@ -77,13 +77,15 @@
   XXTabBarView *bar = [[XXTabBarView alloc] initWithFrame:self.tabBar.bounds];
   self.tabbar = bar;
 
-  bar.delegate = self;
 
+  bar.delegate = self;
+    
   bar.tabarTitleArray = @[ @"资讯", @"好友", @"发现", @"我" ];
   bar.tabBarbackgroundColor = [UIColor colorWithRed:240.0 / 255.0
                                               green:240.0 / 255.0
                                                blue:240.0 / 255.0
                                               alpha:1.0];
+
   bar.textColor = [UIColor colorWithRed:90.0 / 255.0
                                   green:90.0 / 255.0
                                    blue:90.0 / 255.0
