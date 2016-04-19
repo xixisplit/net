@@ -55,6 +55,7 @@
 @property(nonatomic,assign)int defaultItem;
 
 
+
 /**
  *  布局方法.在addsubViews最后添加到视图之前调用.
  */
@@ -63,6 +64,7 @@
  *调用此方法可以跳转到某个 item;
  */
 -(void)selectedIteme:(int)index;
+
 
 
 @property(nonatomic,weak)id<XXTabBarViewDelegate>delegate;

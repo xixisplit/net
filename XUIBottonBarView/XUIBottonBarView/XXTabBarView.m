@@ -154,6 +154,7 @@
 
     [self.delegate XXTabBarView:self didClickTaBarItemIndex:(int)indexPath.row];
   }
+        [self IconAnimation:self.imageArray[indexPath.row] wihtlabelColor:self.labelArray[indexPath.row]];
 }
 
 - (void)selectedIteme:(int)index {
@@ -170,6 +171,34 @@
 
   XXCollectionViewCell *cell = self.cellArray[index];
   cell.selected = YES;
+}
+
+-(void)IconAnimation:(UIImageView *)imageView wihtlabelColor:(UILabel *)label{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        CAAnimationGroup *group = [CAAnimationGroup animation];
+        
+        CABasicAnimation *caBasic = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        
+        caBasic.byValue = @(-M_PI*2*1);
+        
+        group.animations = @[caBasic];
+        
+        group.duration = 1.0;
+        group.repeatCount = 1;
+        
+        [imageView.layer addAnimation:group forKey:@"group_anim"];
+        
+       dispatch_time_t popTime =  dispatch_time(DISPATCH_TIME_NOW, group.duration*NSEC_PER_SEC);
+
+        dispatch_after(popTime, dispatch_get_main_queue(), ^{
+            label.textColor = [UIColor redColor];
+
+        });
+        
+    });
+
 }
 
 @end
