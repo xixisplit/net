@@ -54,7 +54,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   }
   return _imageArray;
 }
- #pragma mark - 属性设置完成后调用的布局方法
+#pragma mark - 属性设置完成后调用的布局方法
 - (void)OK {
 
   UICollectionViewFlowLayout *layout =
@@ -127,17 +127,14 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
       cell.selected = YES;
       self.imageArray[self.defaultItem].image =
           [UIImage imageNamed:self.tabarBackIconArray[self.defaultItem]];
-        self.labelArray[self.defaultItem].textColor = self.tectHightColor;
-        
-        
-        
+      self.labelArray[self.defaultItem].textColor = self.tectHightColor;
     }
   } else {
     if (indexPath.row == 0) {
 
       self.imageArray[self.defaultItem].image =
           [UIImage imageNamed:self.tabarBackIconArray[self.defaultItem]];
-        self.labelArray[self.defaultItem].textColor = self.tectHightColor;
+      self.labelArray[self.defaultItem].textColor = self.tectHightColor;
     }
   }
 
@@ -163,8 +160,8 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   for (XXCollectionViewCell *cell in self.cellArray) {
     cell.selected = NO;
   }
-  UILabel *Clicklabel = self.labelArray[indexPath.row];
-  Clicklabel.textColor = self.tectHightColor;
+//  UILabel *Clicklabel = self.labelArray[indexPath.row];
+//  Clicklabel.textColor = self.tectHightColor;
 
   if ([self.delegate
           respondsToSelector:@selector(XXTabBarView:didClickTaBarItemIndex:)]) {
@@ -178,7 +175,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
              wihtlabelColor:self.labelArray[indexPath.row]
       withIconBackImageName:himage];
 }
-#pragma mark - 代码设置某个 item显示的类方法 
+#pragma mark - 代码设置某个 item显示的类方法
 - (void)selectedIteme:(int)index {
 
   for (XXCollectionViewCell *cell in self.cellArray) {
@@ -189,22 +186,23 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
     label.textColor = self.textColor;
   }
 
-    for (int i; i<self.imageArray.count; i++) {
-        
-        self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
-        
-    }
+  for (int i; i < self.imageArray.count; i++) {
 
-  UILabel *Clicklabel = self.labelArray[index];
-  Clicklabel.textColor = self.tectHightColor;
+    self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
+  }
+
+//  UILabel *Clicklabel = self.labelArray[index];
+//
+////  Clicklabel.textColor = self.tectHightColor;
 
   XXCollectionViewCell *cell = self.cellArray[index];
   cell.selected = YES;
 
-  self.imageArray[index].image =
-      [UIImage imageNamed:self.tabarBackIconArray[index]];
-    
-    
+//  self.imageArray[index].image =
+//      [UIImage imageNamed:self.tabarBackIconArray[index]];
+//    
+      UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[index]];
+    [self IconAnimation:self.imageArray[index] wihtlabelColor:self.labelArray[index] withIconBackImageName:himage];
 }
 #pragma mark - 图标的动画逻辑判断
 - (void)IconAnimation:(UIImageView *)imageView
@@ -231,10 +229,9 @@ withIconBackImageName:(UIImage *)imageName {
     default:
       break;
     }
-  }else{
-      
-      imageView.image = imageName;
-      
+  } else {
+
+    imageView.image = imageName;
   };
 }
 
@@ -257,7 +254,7 @@ withIconBackImageName:(UIImage *)imageName {
     }
     group.animations = @[ caBasic ];
 
-    group.duration = 1.0;
+    group.duration = 0.7;
     group.repeatCount = 1;
 
     [imageView.layer addAnimation:group forKey:@"group_anim"];
@@ -269,6 +266,7 @@ withIconBackImageName:(UIImage *)imageName {
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
 
       imageView.image = imageName;
+        label.textColor = self.tectHightColor;
 
     });
 

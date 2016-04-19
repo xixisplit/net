@@ -114,7 +114,7 @@
   ];
 
 
-//    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
+    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
     
 
   [bar OK];
