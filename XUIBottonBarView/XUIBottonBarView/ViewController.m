@@ -109,7 +109,8 @@
     @"tab_icon_more_press"
   ];
 
-  bar.defaultItem = 3;
+    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
+    
 
   [bar OK];
   [self.tabBar addSubview:bar];

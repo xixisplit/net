@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+typedef NS_OPTIONS(NSUInteger, XXTabBarViewItemIconAnimationType) {
+
+    XXTabBarViewItemIconAnimationTypeLeftRotation    = 1 << 0,
+    XXTabBarViewItemIconAnimationTypeRightRotation   = 1 << 1,
+
+};
+
 @class XXTabBarView;
 
 @protocol  XXTabBarViewDelegate<NSObject>
@@ -54,7 +62,10 @@
  */
 @property(nonatomic,assign)int defaultItem;
 
-
+/**
+ *  点击图标的动画效果.默认无效果.可选属性
+ */
+@property(nonatomic,assign)XXTabBarViewItemIconAnimationType animationType;
 
 /**
  *  布局方法.在addsubViews最后添加到视图之前调用.

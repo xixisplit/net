@@ -10,6 +10,12 @@
 #import "XXCollectionViewCell.h"
 #import "XXTabBarView.h"
 
+
+typedef NS_OPTIONS(NSUInteger, RotationType) {
+    RotationTypeLeft    = 1 << 0,
+    RotationTypeRight   = 1 << 1,
+};
+
 @interface XXTabBarView () <UICollectionViewDelegate,
                             UICollectionViewDataSource>
 /**
@@ -174,31 +180,61 @@
 }
 
 -(void)IconAnimation:(UIImageView *)imageView wihtlabelColor:(UILabel *)label{
+    if (self.animationType){
+        
+        switch (self.animationType) {
+            case XXTabBarViewItemIconAnimationTypeLeftRotation:
+               
+                [self iconLeftRotation:imageView withlabel:label wihtleftOrRight:RotationTypeLeft];
+                
+                break;
+            case XXTabBarViewItemIconAnimationTypeRightRotation:
+                  [self iconLeftRotation:imageView withlabel:label wihtleftOrRight:RotationTypeRight];
+                break;
+                
+            default:
+                break;
+        }
     
+
+    };
+}
+
+#pragma mark - icon 的动画效果方法
+
+-(void)iconLeftRotation:(UIImageView *)imageView withlabel:(UILabel *)label wihtleftOrRight:(RotationType)type{
     dispatch_async(dispatch_get_main_queue(), ^{
         
         CAAnimationGroup *group = [CAAnimationGroup animation];
         
         CABasicAnimation *caBasic = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        
-        caBasic.byValue = @(-M_PI*2*1);
-        
+        if (type == RotationTypeLeft){
+            caBasic.byValue = @(-M_PI*2*1);
+        }else if (type == RotationTypeRight){
+            caBasic.byValue = @(M_PI*2*1);
+        }
+
         group.animations = @[caBasic];
         
         group.duration = 1.0;
         group.repeatCount = 1;
         
         [imageView.layer addAnimation:group forKey:@"group_anim"];
-        
-       dispatch_time_t popTime =  dispatch_time(DISPATCH_TIME_NOW, group.duration*NSEC_PER_SEC);
 
+        
+        /* --- 这段带来是在动画异步主线程的动画结束之后做的事情;
+        dispatch_time_t popTime =  dispatch_time(DISPATCH_TIME_NOW, group.duration*NSEC_PER_SEC);
+        
         dispatch_after(popTime, dispatch_get_main_queue(), ^{
             label.textColor = [UIColor redColor];
-
+            
         });
+         
+         */
         
     });
 
 }
+
 
 @end
