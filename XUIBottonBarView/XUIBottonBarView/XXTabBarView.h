@@ -12,13 +12,21 @@ typedef NS_OPTIONS(NSUInteger, XXTabBarViewItemIconAnimationType) {
 
     XXTabBarViewItemIconAnimationTypeLeftRotation    = 1 << 0,
     XXTabBarViewItemIconAnimationTypeRightRotation   = 1 << 1,
+    XXTabBarViewItemIconAnimationTypewhereabouts     = 1 << 2,
+    XXTabBarViewItemIconAnimationTypeLeftSliding     = 1 << 3,
+    XXTabBarViewItemIconAnimationTypeRightSliding    = 1 << 4,
 
 };
 
 @class XXTabBarView;
 
 @protocol  XXTabBarViewDelegate<NSObject>
-
+/**
+ *  控件的 item 被点击的时候会 调用此方法
+ *
+ *  @param tabBarView self
+ *  @param index      被点击的 item 的 index;
+ */
 -(void)XXTabBarView:(XXTabBarView*)tabBarView didClickTaBarItemIndex:(int)index;
 
 @end

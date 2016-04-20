@@ -77,6 +77,8 @@
   XXTabBarView *bar = [[XXTabBarView alloc] initWithFrame:self.tabBar.bounds];
   self.tabbar = bar;
 
+//    bar.backgroundImage = [UIImage imageNamed:@"111.jpg"];
+//    
 
   bar.delegate = self;
     
@@ -116,8 +118,6 @@
   ];
 
 
-    bar.animationType = XXTabBarViewItemIconAnimationTypeLeftRotation;
-    
 
   [bar OK];
   [self.tabBar addSubview:bar];
@@ -127,8 +127,8 @@
 - (void)XXTabBarView:(XXTabBarView *)tabBarView
     didClickTaBarItemIndex:(int)index {
 
-  NSLog(@"%d", index);
   self.selectedIndex = index;
 }
+
 
 @end

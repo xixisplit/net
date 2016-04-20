@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154326591CC7164A0008BAB4 /* 111.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 154326581CC7164A0008BAB4 /* 111.jpg */; };
 		1593DBA01CC0B782003A6A8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DB9F1CC0B782003A6A8A /* main.m */; };
 		1593DBA31CC0B782003A6A8A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBA21CC0B782003A6A8A /* AppDelegate.m */; };
 		1593DBA61CC0B782003A6A8A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1593DBA51CC0B782003A6A8A /* ViewController.m */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		154326581CC7164A0008BAB4 /* 111.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 111.jpg; sourceTree = "<group>"; };
 		1593DB9B1CC0B782003A6A8A /* XUIBottonBarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XUIBottonBarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1593DB9F1CC0B782003A6A8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1593DBA11CC0B782003A6A8A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				1593DBBF1CC0B887003A6A8A /* N4.m */,
 				1593DBC11CC0B910003A6A8A /* @3x */,
 				1593DBAA1CC0B782003A6A8A /* Assets.xcassets */,
+				154326581CC7164A0008BAB4 /* 111.jpg */,
 				1593DBAC1CC0B782003A6A8A /* LaunchScreen.storyboard */,
 				1593DBAF1CC0B782003A6A8A /* Info.plist */,
 				1593DB9E1CC0B782003A6A8A /* Supporting Files */,
@@ -306,6 +309,7 @@
 				1593DBDF1CC0B910003A6A8A /* Contents.json in Resources */,
 				1593DBEA1CC0B910003A6A8A /* 图标_0008_检测.png in Resources */,
 				1593DBE11CC0B910003A6A8A /* Contents.json in Resources */,
+				154326591CC7164A0008BAB4 /* 111.jpg in Resources */,
 				1593DBDB1CC0B910003A6A8A /* Contents.json in Resources */,
 				1593DBE01CC0B910003A6A8A /* 图标_0010_黑白-1-副本.png in Resources */,
 				1593DBE91CC0B910003A6A8A /* Contents.json in Resources */,

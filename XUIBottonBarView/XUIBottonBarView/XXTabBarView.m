@@ -14,7 +14,10 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   RotationTypeLeft = 1 << 0,
   RotationTypeRight = 1 << 1,
 };
-
+typedef NS_OPTIONS(NSUInteger, slidingType) {
+    slidingTypeLeft = 1 << 0,
+    slidingTypeRight = 1 << 1,
+};
 @interface XXTabBarView () <UICollectionViewDelegate,
                             UICollectionViewDataSource>
 /**
@@ -55,23 +58,21 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   return _imageArray;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-
-    }
-    return self;
+- (instancetype)initWithFrame:(CGRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+  }
+  return self;
 }
 
--(void)setBackgroundImage:(UIImage *)backgroundImage{
+- (void)setBackgroundImage:(UIImage *)backgroundImage {
 
-    _backgroundImage = backgroundImage;
-    
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:self.backgroundImage];
-        imageView.frame = self.frame;
-        [self addSubview:imageView];
+  _backgroundImage = backgroundImage;
 
+  UIImageView *imageView =
+      [[UIImageView alloc] initWithImage:self.backgroundImage];
+  imageView.frame = self.frame;
+  [self addSubview:imageView];
 }
 
 #pragma mark - 属性设置完成后调用的布局方法
@@ -81,14 +82,14 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
       [[UICollectionViewFlowLayout alloc] init];
   XXCollectionView *BarView = [[XXCollectionView alloc] initWithFrame:self.frame
                                                  collectionViewLayout:layout];
-    BarView.backgroundColor = [UIColor clearColor];
+  BarView.backgroundColor = [UIColor clearColor];
   CGFloat itemWidth = self.frame.size.width / self.tabarIconArray.count;
   CGFloat itemHeight = self.frame.size.height;
   NSLog(@"%f,%f", itemWidth, itemHeight);
 
   layout.itemSize = CGSizeMake(itemWidth, itemHeight);
   layout.minimumInteritemSpacing = 0;
-    
+
   layout.minimumLineSpacing = 0;
 
   BarView.delegate = self;
@@ -113,14 +114,13 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   XXCollectionViewCell *cell =
       [collectionView dequeueReusableCellWithReuseIdentifier:@"id"
                                                 forIndexPath:indexPath];
-    
-    if (self.backgroundImage) {
-        cell.backgroundColor = [UIColor clearColor];
-    }else{
-        
-         cell.backgroundColor = self.tabBarbackgroundColor;
-    }
- 
+
+  if (self.backgroundImage) {
+    cell.backgroundColor = [UIColor clearColor];
+  } else {
+
+    cell.backgroundColor = self.tabBarbackgroundColor;
+  }
 
   UIImage *image = [UIImage imageNamed:self.tabarIconArray[indexPath.row]];
 
@@ -130,7 +130,6 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
     imageView.bounds =
         CGRectMake(0, 0, self.tabarImageSize.x, self.tabarImageSize.y);
   }
-
 
   imageView.center =
       CGPointMake(cell.bounds.size.width / 2, cell.bounds.size.height / 2 - 5);
@@ -166,13 +165,13 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   }
 
   [self.cellArray addObject:cell];
-    
-    CGFloat x,y,w,h;
-    x = self.bounds.size.width/self.tabarTitleArray.count*indexPath.row;
-    y = 0;
-    w = self.bounds.size.width/self.tabarTitleArray.count;
-    h = self.bounds.size.height;
-    cell.frame = CGRectMake(x, y, w, h);
+
+  CGFloat x, y, w, h;
+  x = self.bounds.size.width / self.tabarTitleArray.count * indexPath.row;
+  y = 0;
+  w = self.bounds.size.width / self.tabarTitleArray.count;
+  h = self.bounds.size.height;
+  cell.frame = CGRectMake(x, y, w, h);
 
   return cell;
 }
@@ -194,8 +193,7 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
   for (XXCollectionViewCell *cell in self.cellArray) {
     cell.selected = NO;
   }
-//  UILabel *Clicklabel = self.labelArray[indexPath.row];
-//  Clicklabel.textColor = self.tectHightColor;
+
 
   if ([self.delegate
           respondsToSelector:@selector(XXTabBarView:didClickTaBarItemIndex:)]) {
@@ -205,10 +203,13 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
 
   UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[indexPath.row]];
 
-  [self IconAnimation:self.imageArray[indexPath.row]
+        [self IconAnimation:self.imageArray[indexPath.row]
              wihtlabelColor:self.labelArray[indexPath.row]
-      withIconBackImageName:himage];
-}
+      withIconBackImageName:himage
+                  withIndex:(int)indexPath.row];
+
+
+ }
 #pragma mark - 代码设置某个 item显示的类方法
 - (void)selectedIteme:(int)index {
 
@@ -225,23 +226,27 @@ typedef NS_OPTIONS(NSUInteger, RotationType) {
     self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
   }
 
-//  UILabel *Clicklabel = self.labelArray[index];
-//
-////  Clicklabel.textColor = self.tectHightColor;
+  //  UILabel *Clicklabel = self.labelArray[index];
+  //
+  ////  Clicklabel.textColor = self.tectHightColor;
 
   XXCollectionViewCell *cell = self.cellArray[index];
   cell.selected = YES;
 
-//  self.imageArray[index].image =
-//      [UIImage imageNamed:self.tabarBackIconArray[index]];
-//    
-      UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[index]];
-    [self IconAnimation:self.imageArray[index] wihtlabelColor:self.labelArray[index] withIconBackImageName:himage];
+  //  self.imageArray[index].image =
+  //      [UIImage imageNamed:self.tabarBackIconArray[index]];
+  //
+  UIImage *himage = [UIImage imageNamed:self.tabarBackIconArray[index]];
+  [self IconAnimation:self.imageArray[index]
+             wihtlabelColor:self.labelArray[index]
+      withIconBackImageName:himage
+                  withIndex:index];
 }
 #pragma mark - 图标的动画逻辑判断
 - (void)IconAnimation:(UIImageView *)imageView
        wihtlabelColor:(UILabel *)label
-withIconBackImageName:(UIImage *)imageName {
+withIconBackImageName:(UIImage *)imageName
+            withIndex:(int)index {
   if (self.animationType) {
 
     switch (self.animationType) {
@@ -260,17 +265,109 @@ withIconBackImageName:(UIImage *)imageName {
           withIconBackImageName:imageName];
       break;
 
+    case XXTabBarViewItemIconAnimationTypewhereabouts:
+
+      [self iconWhereabouts:imageView withlabel:label withindex:index];
+      break;
+            
+    case XXTabBarViewItemIconAnimationTypeLeftSliding:
+
+            [self iconSliding:imageView withLbael:label withindex:index withSlidingType:slidingTypeLeft];
+            
+      break;
+
+    case XXTabBarViewItemIconAnimationTypeRightSliding:
+            [self iconSliding:imageView withLbael:label withindex:index withSlidingType:slidingTypeRight];
+
+      break;
+            
     default:
       break;
     }
   } else {
 
     imageView.image = imageName;
+      label.textColor = self.tectHightColor;
   };
 }
 
 #pragma mark - icon 的动画效果方法
 
+-(void)iconSliding:(UIImageView *)imageView withLbael:(UILabel *)label withindex:(int)index withSlidingType:(slidingType)type{
+
+    imageView.clipsToBounds = YES;
+    
+    UIImageView *image = [[UIImageView alloc]
+                          initWithImage:[UIImage imageNamed:self.tabarBackIconArray[index]]];
+    
+    if (type == slidingTypeRight) {
+       image.frame = CGRectMake(-image.frame.size.width, 0, image.frame.size.width, image.frame.size.height);
+        
+    }else if (type == slidingTypeLeft){
+    image.frame = CGRectMake(image.frame.size.width, 0, image.frame.size.width, image.frame.size.height);
+    
+    }
+    NSLog(@"%@",NSStringFromCGRect(image.frame));
+    [imageView addSubview:image];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         image.frame = imageView.bounds;
+                     }
+                     completion:^(BOOL finished) {
+                         [image removeFromSuperview];
+                         
+                         for (int i = 0; i < self.imageArray.count; i++) {
+                             self.imageArray[i].image =
+                             [UIImage imageNamed:self.tabarIconArray[i]];
+                         }
+                         imageView.image = [UIImage imageNamed:self.tabarBackIconArray[index]];
+                         label.textColor = self.tectHightColor;
+                     }];
+
+
+
+}
+
+
+/**
+ * 图标下落的动画方法
+ */
+- (void)iconWhereabouts:(UIImageView *)imageView
+              withlabel:(UILabel *)label
+              withindex:(int)index {
+
+  XXCollectionViewCell *cell = self.cellArray[index];
+
+  UIImageView *image = [[UIImageView alloc]
+      initWithImage:[UIImage imageNamed:self.tabarBackIconArray[index]]];
+    
+
+            image.frame = CGRectMake(cell.bounds.size.width / 2, -image.frame.size.height,
+                                     image.frame.size.width, image.frame.size.height);
+            image.center = CGPointMake(cell.bounds.size.width / 2, image.frame.origin.y);
+
+  NSLog(@"%@", NSStringFromCGRect(image.frame));
+    
+  [cell addSubview:image];
+  [UIView animateWithDuration:0.5
+      animations:^{
+        image.layer.frame = imageView.frame;
+      }
+      completion:^(BOOL finished) {
+        [image removeFromSuperview];
+
+        for (int i = 0; i < self.imageArray.count; i++) {
+          self.imageArray[i].image =
+              [UIImage imageNamed:self.tabarIconArray[i]];
+        }
+        imageView.image = [UIImage imageNamed:self.tabarBackIconArray[index]];
+        label.textColor = self.tectHightColor;
+      }];
+}
+/**
+ *图标点击旋转的方法
+ */
 - (void)iconLeftRotation:(UIImageView *)imageView
                withlabel:(UILabel *)label
          wihtleftOrRight:(RotationType)type
@@ -298,19 +395,17 @@ withIconBackImageName:(UIImage *)imageName {
         dispatch_time(DISPATCH_TIME_NOW, group.duration * NSEC_PER_SEC);
 
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
-        
-        for (UILabel *label in self.labelArray) {
-            label.textColor = self.textColor;
-            
-        }
 
-        for (int i = 0; i<self.imageArray.count; i++) {
-            
-            self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
-            
-        }
+      for (UILabel *label in self.labelArray) {
+        label.textColor = self.textColor;
+      }
+
+      for (int i = 0; i < self.imageArray.count; i++) {
+
+        self.imageArray[i].image = [UIImage imageNamed:self.tabarIconArray[i]];
+      }
       imageView.image = imageName;
-        label.textColor = self.tectHightColor;
+      label.textColor = self.tectHightColor;
 
     });
 
