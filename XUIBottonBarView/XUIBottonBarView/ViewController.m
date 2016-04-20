@@ -80,6 +80,8 @@
 //    bar.backgroundImage = [UIImage imageNamed:@"111.jpg"];
 //    
 
+    bar.animationType = XXTabBarViewItemIconAnimationTypewhereabouts;
+    
   bar.delegate = self;
     
   bar.tabarTitleArray = @[ @"资讯", @"好友", @"发现", @"我" ];

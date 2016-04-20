@@ -320,11 +320,11 @@ withIconBackImageName:(UIImage *)imageName
                          for (int i = 0; i < self.imageArray.count; i++) {
                              self.imageArray[i].image =
                              [UIImage imageNamed:self.tabarIconArray[i]];
+                             self.labelArray[i].textColor = self.textColor;
                          }
                          imageView.image = [UIImage imageNamed:self.tabarBackIconArray[index]];
                          label.textColor = self.tectHightColor;
                      }];
-
 
 
 }
@@ -360,6 +360,7 @@ withIconBackImageName:(UIImage *)imageName
         for (int i = 0; i < self.imageArray.count; i++) {
           self.imageArray[i].image =
               [UIImage imageNamed:self.tabarIconArray[i]];
+            self.labelArray[i].textColor = self.textColor;
         }
         imageView.image = [UIImage imageNamed:self.tabarBackIconArray[index]];
         label.textColor = self.tectHightColor;
