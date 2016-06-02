@@ -54,8 +54,6 @@
     button.backgroundColor = [UIColor yellowColor];
     [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-    
-    
 }
 
 -(void)clickButton:(UIButton *)button{

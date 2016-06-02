@@ -135,7 +135,6 @@
 
   NSString *imageName = self.imageNameArray[self.startIndex];
 
-  ;
   NSString *imageName1 = self.imageNameArray[self.endIndex];
 
   [UIView animateWithDuration:1.0
